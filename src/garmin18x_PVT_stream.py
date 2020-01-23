@@ -3,7 +3,7 @@
 import sys, os, math
 from time import sleep
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/forked_repo")
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + "/pygarmin")
 import garmin
 
 # Create a 'physical layer' connection using serial port
