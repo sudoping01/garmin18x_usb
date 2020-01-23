@@ -19,6 +19,7 @@ sys.stdout.write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 
 while True:
 	data = gps.getPvt()
+
 	sys.stdout.write("\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F")
 	sys.stdout.write("Fix: " + str(data.fix))
 	sys.stdout.write("\nAlt: " + str(data.alt))
@@ -35,7 +36,9 @@ while True:
 	sys.stdout.write("\nMsl_ht: " + str(data.msl_height))
 	sys.stdout.write("\nLp_secs: " + str(data.leap_secs))
 	sys.stdout.write("\nWn_dy: " + str(data.wn_days))
-
 	sys.stdout.flush()
+
+	# getPvt is called again and not used because apparently the data is in a different format when called an even number of times.  The next call will provide data I can currently understand.
 	gps.getPvt()
+
 	sleep(1.0)

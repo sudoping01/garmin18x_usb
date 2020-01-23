@@ -1,1 +1,25 @@
 The goal of this repo is to provide code that relaibly connects to and extracts usable data from a USB Garmin 18x GPS.
+
+---------
+
+The simple PVT stream script reports the following data onto the terminal window.  It is a good script to reference when developing future code to get live data from the gps.
+
+---------
+
+PVT data:
+
+Some of the Garmin receivers support a PVT mode as part of the Garmin mode. If you are using a computer program that supports this then you can remain in Garmin mode even while running your real time mapping application. You set your unit to Garmin mode and then select this solution from the menus in the application. Delorme mapping products support this mode. This is an advantage in that you don't need to switch modes and you can leave your interface at 9600 baud which makes the real time response a bit faster. The update interval is 1 second and this mode does not require handshaking nor does it support retransmission of data. The following data is typically included as part of the pvt structure in the D800 message:
+
+    alt - Altitude above WGS-84 ellipsoid
+    epe - total predicted error (2 sigma meters)
+    eph - horizontal position error
+    epv - vertical position error
+    fix - type of position fix
+    tow - time of week (seconds)
+    posn - lat/lon (radians)
+    east - velocity east (meters/sec)
+    north - velocity north (meters/sec)
+    up - velocity up (meters/sec)
+    msl_height - height of WGS-84 ellipsoid above MSL (meters)
+    leap_seconds - difference between gps time and UTC (seconds)
+    wn_days - week number days
