@@ -1,6 +1,18 @@
 The goal of this repo is to provide code that relaibly connects to and extracts usable data from a USB Garmin 18x GPS.
 
+Currently supports Ubuntu 18.04 running ROS Melodic
+
 ---------
+
+Setup:
+1. gitclone --recursive https://github.com/chriswsuarez/garmin18x_USB.git
+2. To ensure the garmin gps always comes up with the proper /dev path, copy the file 51-garmin.rules from the setup folder to the path /etc/udev/rules.d/
+3. Once the udev rule is in place either restart the computer or reload the udev rules.  This can be done in the terminal window, however it has not been successful for me, so I just restart after adding udev rules.
+4. Plug in the USB Garmin 18x and run whichever script you desire.
+
+---------
+
+garmin18x_PVT_stream.py:
 
 The simple PVT stream script reports the following data onto the terminal window.  It is a good script to reference when developing future code to get live data from the gps.
 
