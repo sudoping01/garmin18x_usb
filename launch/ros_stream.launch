@@ -2,9 +2,9 @@
 <launch>
 
   <!-- Load Params -->
-  <rosparam command="load" file="$(find garmin18x_USB)/config/ros_stream.yaml"/>
+  <rosparam command="load" file="$(find garmin18x_usb)/config/ros_stream.yaml"/>
 
   <!-- Ros Stream -->
-  <node name="garmin_gps" pkg="garmin18x_USB" type="ros_stream.py" output="screen"/>
+  <node name="garmin_gps" pkg="garmin18x_usb" type="ros_stream.py" output="screen"/>
 
 </launch>

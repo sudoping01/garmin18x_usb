@@ -1,4 +1,4 @@
 garmin_gps:
   pub_topic: "/fix"
   frame_id:  "gps"
-  pub_rate:  0.5
+  pub_rate:  1.0

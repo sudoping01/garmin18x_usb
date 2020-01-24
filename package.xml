@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>garmin18x_USB</name>
+  <name>garmin18x_usb</name>
   <version>1.0.0</version>
   <description>The goal of this package is to provide code that relaibly connects to and extracts usable data from a USB Garmin 18x GPS.</description>
 

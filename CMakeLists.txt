@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(garmin18x_USB)
+project(garmin18x_usb)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
