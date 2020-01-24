@@ -8,6 +8,7 @@ project(garmin18x_USB)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  std_msgs
   sensor_msgs
   rospy
 )
@@ -104,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #   INCLUDE_DIRS include
   LIBRARIES pygarmin
-  CATKIN_DEPENDS rospy sensor_msgs
+  CATKIN_DEPENDS rospy sensor_msgs std_msgs
   DEPENDS
 )
 
@@ -156,7 +157,8 @@ catkin_package(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
-  src/garmin18x_PVT_stream
+  src/terminal_stream
+  src/ros_stream
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
