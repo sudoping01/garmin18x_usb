@@ -13,19 +13,20 @@ class GarminToRos:
 
 	def __init__(self):
 
-		# Create a 'physical layer' connection using serial port
-		phys = garmin.SerialLink("/dev/sensors/garmin_gps")
-
-		# Create a Garmin object using this connection
-		gps = garmin.Garmin(phys)
-
-		# Turn on Position Velocity Time
-		gps.pvtOn()
-
 		# Ros Parameters
 		self.pub_topic = rospy.get_param("garmin_gps/pub_topic", "/fix")
 		self.frame_id = rospy.get_param("garmin_gps/frame_id", "gps")
 		self.pub_rate = rospy.get_param("garmin_gps/pub_rate", 1.0)
+		dev_path = rospy.get_param("garmin_gps/dev_path", "/dev/sensors/garmin_gps")
+
+		# Create a 'physical layer' connection using serial port
+		phys = garmin.SerialLink(dev_path)
+
+		# Create a Garmin object using this connection
+		gps = garmin.Garmin(phys)
+		
+		# Turn on Position Velocity Time
+		gps.pvtOn()
 
 		# Publishers and subscribers
 		# rospy.Subscriber(self.twist_sub_topic, Twist, self.update_twist)

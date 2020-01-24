@@ -2,3 +2,4 @@ garmin_gps:
   pub_topic: "/fix"
   frame_id:  "gps"
   pub_rate:  1.0
+  dev_path:  "/dev/sensors/garmin_gps"
