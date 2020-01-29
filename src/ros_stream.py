@@ -40,7 +40,7 @@ class GarminToRos:
 			lat = data.rlat * 180 / math.pi
 			lon = data.rlon * 180 / math.pi
 
-			if abs(int(lat * 1e10) - int(self.fix.latitude * 1e10)) and abs(int(lon * 1e10) - int(self.fix.latitude * 1e10)) > 0 and abs(int(data.alt * 1e10) - int(self.fix.altitude * 1e10)):
+			if abs(int(lat * 1e10) - int(self.fix.latitude * 1e10)) > 0 and abs(int(lon * 1e10) - int(self.fix.latitude * 1e10)) > 0 and abs(int(data.alt * 1e10) - int(self.fix.altitude * 1e10)) > 0:
 				self.fix.status.status = 1
 			else:
 				self.fix.status.status = 0
