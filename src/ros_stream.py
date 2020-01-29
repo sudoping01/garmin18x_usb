@@ -2,8 +2,7 @@
 
 import sys, os, math
 import rospy
-from sensor_msgs.msg import NavSatFix# , NavSatStatus
-# from std_msgs.msg import Header
+from sensor_msgs.msg import NavSatFix
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + "/pygarmin")
 import garmin
@@ -29,7 +28,6 @@ class GarminToRos:
 		gps.pvtOn()
 
 		# Publishers and subscribers
-		# rospy.Subscriber(self.twist_sub_topic, Twist, self.update_twist)
 		self._pub_fix = rospy.Publisher(self.pub_topic, NavSatFix, queue_size=1)
 
 		self.fix = NavSatFix()
