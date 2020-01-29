@@ -15,13 +15,21 @@ Currently supports Ubuntu 18.04 running ROS Melodic
 3. Once the udev rule is in place either restart the computer or reload the udev rules.  This can be done in the terminal window, however it has not been successful for me, so I just restart after adding udev rules.
 `sudo restart`
 4. Plug in the USB Garmin 18x and run whichever script you desire. 
-`./src/garmin18x_PVT_stream.py`
+`./src/ros_stream.py` or `./src/terminal_stream.py`
 
 ---------
 
-## garmin18x_PVT_stream.py
+## ros_stream.py
 
-The simple PVT stream script reports the following data onto the terminal window.  It is a good script to reference when developing future code to get live data from the gps.
+This script grabs the raw GPS PVT data and publishes a ros topic of type NavSatFix.  It uses rosparam set in `config/ros_stream.yaml` to determine which topic to publish on which dev path to look for the garmin gps and which frame_id the data is associated with.  The publish rate can also be changed however in limited testing it has not been able to publish faster than 1 Hz.  It can publish less frequently.
+
+`launch/ros_stream.launch` gives an example of how to run the script and load the rosparams from the yaml file in one command: `roslaunch garmin18x_usb ros_stream.launch`
+
+---------
+
+## terminal_stream.py
+
+This simple PVT stream script reports the raw GPS PVT data onto the terminal window.  It is a good script to reference when developing future code to get live data from the gps.
 
 ---------
 
