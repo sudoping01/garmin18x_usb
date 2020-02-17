@@ -1,0 +1,7 @@
+gps_correction_base:
+  pub_topic: "fix/correction"
+  base_lat:  30.385178399728332
+  base_lon:  -97.72850900888446
+  base_alt:  243.0
+  pub_rate:  1.0
+  dev_path:  "/dev/sensors/garmin_gps"

@@ -159,6 +159,8 @@ catkin_package(
 install(PROGRAMS
   src/terminal_stream
   src/ros_stream
+  src/gps_correction_base
+  src/gps_correction_rover
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
