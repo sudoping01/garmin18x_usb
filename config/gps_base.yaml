@@ -4,7 +4,7 @@ gps_correction_base:
   base_lon:  -97.72850900888446
   base_alt:  243.0
   pub_rate:  1.0
-  dev_path:  "/dev/sensors/garmin_gps"
+  dev_path:  "/dev/ttyUSB0"
 
 gps_correction_test:
   sub_topic: "fix"

@@ -51,6 +51,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   GpsCorrection.msg
+  BaseToRover.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -161,6 +162,7 @@ install(PROGRAMS
   src/ros_stream
   src/gps_correction_base
   src/gps_correction_rover
+  src/sanity_check
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
