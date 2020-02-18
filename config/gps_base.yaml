@@ -8,3 +8,4 @@ gps_correction_base:
 
 gps_correction_test:
   sub_topic: "fix"
+  record_data: True

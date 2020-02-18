@@ -4,6 +4,7 @@ import rospy
 from math import pi, cos, sin, asin, atan2, sqrt
 from garmin18x_usb.msg import BaseToRover
 from sensor_msgs.msg import NavSatFix
+import matplotlib.pyplot as plt
 
 class GpsCorrectionTest:
 
@@ -13,6 +14,7 @@ class GpsCorrectionTest:
 		self.base_lat = rospy.get_param("gps_correction_base/base_lat", 30.385178399728332)
 		self.base_lon = rospy.get_param("gps_correction_base/base_long", -97.72850900888446)
 		self.base_alt = rospy.get_param("gps_correction_base/base_alt", 243.0)
+		self.record_data = rospy.get_param("gps_correction_test/record_data", False)
 		self.pub_rate = rospy.get_param("gps_correction_rover/pub_rate", 1.0)
 
 		rospy.Subscriber(self.sub_topic, NavSatFix, self.update_data)
@@ -22,6 +24,9 @@ class GpsCorrectionTest:
 		self.rlon1 = self.base_lon * pi / 180
 
 		self.rover = BaseToRover()
+		if self.record_data:
+			self.e_data = list()
+			self.n_data = list()
 
 		while not rospy.is_shutdown():
 			pass
@@ -40,10 +45,23 @@ class GpsCorrectionTest:
 			# Unused gps data fields - fix, epe, eph, epv, tow, east, north, up, msl_height, leap_secs, wn_days
 
 			# getPvt is called again and not used because apparently the data is in a different format when called an even number of times.  The next call will provide data I can currently understand.
-			print(self.rover)
+			if self.record_data: 
+				# self.plot_data()
+				plt.plot([1000 * self.rover.distance * cos(self.rover.bearing)], [1000 * self.rover.distance * sin(self.rover.bearing)], 'ro')
+				plt.axis([-20, 20, -20, 20])
+				plt.xlabel("East (m)")
+				plt.ylabel("North (m)")
+				plt.show()
+
 			self._pub_fix.publish(self.rover)
 		else:
 			print("Rover is not reporting a fix")
+
+	def plot_data(self):
+		self.e_data.append(1000 * self.rover.distance * cos(self.rover.bearing))
+		self.n_data.append(1000 * self.rover.distance * sin(self.rover.bearing))
+
+
 
 if __name__=='__main__':
 	rospy.init_node('gps_correction_test')
