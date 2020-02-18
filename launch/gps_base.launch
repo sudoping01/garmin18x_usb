@@ -4,7 +4,10 @@
   <!-- Load Params -->
   <rosparam command="load" file="$(find garmin18x_usb)/config/gps_base.yaml"/>
 
-  <!-- Ros Stream -->
-  <node name="garmin_gps" pkg="garmin18x_usb" type="gps_correction_base.py" output="screen"/>
+  <!-- Launch gps base -->
+  <node name="gps_correction_base" pkg="garmin18x_usb" type="gps_correction_base.py" output="screen"/>
+
+  <!-- Sanity check test -->
+  <node name="gps_correction_test" pkg="garmin18x_usb" type="sanity_check.py" output="screen"/>
 
 </launch>

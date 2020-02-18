@@ -1,0 +1,8 @@
+gps_correction_base:
+  sub_topic: "fix/correction"
+  pub_topic: "fix"
+  pub_rate:  1.0
+  dev_path:  "/dev/sensors/garmin_gps"
+
+# gps_correction_test:
+#   sub_topic: "fix"

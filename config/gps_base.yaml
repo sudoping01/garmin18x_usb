@@ -5,3 +5,6 @@ gps_correction_base:
   base_alt:  243.0
   pub_rate:  1.0
   dev_path:  "/dev/sensors/garmin_gps"
+
+gps_correction_test:
+  sub_topic: "fix"

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <!-- Load Params -->
+  <rosparam command="load" file="$(find garmin18x_usb)/config/gps_rover.yaml"/>
+
+  <!-- Launch Rover correction -->
+  <node name="gps_correction_rover" pkg="garmin18x_usb" type="gps_correction_rover.py" output="screen"/>
+
+</launch>
