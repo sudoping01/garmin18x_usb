@@ -10,11 +10,13 @@ Currently supports Ubuntu 18.04 running ROS Melodic
 
 1. Clone the repo recursively into wherever you want. 
 `gitclone --recursive https://github.com/chriswsuarez/garmin18x_usb.git`
-2. To ensure the garmin gps always comes up with the proper /dev path, copy the file 51-garmin.rules from the setup folder to the path /etc/udev/rules.d/: 
+2. Ensure the garmin_gps driver is not blacklisted in modprobe. Comment out any line that says `blacklist garmin_gps` in the following file path.
+`sudo nano /etc/modprobe.d/blacklist.conf`
+4. To ensure the garmin gps always comes up with the proper /dev path, copy the file 51-garmin.rules from the setup folder to the path /etc/udev/rules.d/: 
 `cp setup/51-garmin.rules /etc/udev/rules.d/`
-3. Once the udev rule is in place either restart the computer or reload the udev rules.  This can be done in the terminal window, however it has not been successful for me, so I just restart after adding udev rules.
+4. Once the udev rule is in place either restart the computer or reload the udev rules.  This can be done in the terminal window, however it has not been successful for me, so I just restart after adding udev rules.
 `sudo restart`
-4. Plug in the USB Garmin 18x and run whichever script you desire. 
+5. Plug in the USB Garmin 18x and run whichever script you desire. 
 `./src/ros_stream.py` or `./src/terminal_stream.py`
 
 ---------
